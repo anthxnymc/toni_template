@@ -1,6 +1,5 @@
-package vice.sol_valheim;
+package vice.example_mod;
 
-import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
@@ -9,7 +8,6 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -21,7 +19,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 
-@Config(name = SOLValheim.MOD_ID)
+@Config(name = ExampleMod.MOD_ID)
 @Config.Gui.Background("minecraft:textures/block/stone.png")
 public class ModConfig extends PartitioningSerializer.GlobalData {
 
@@ -30,7 +28,7 @@ public class ModConfig extends PartitioningSerializer.GlobalData {
         if(item != Items.CAKE && !item.isEdible() && !isDrink)
             return null;
 
-        var existing = SOLValheim.Config.common.foodConfigs.get(item.arch$registryName());
+        var existing = ExampleMod.Config.common.foodConfigs.get(item.arch$registryName());
         if (existing == null)
         {
             var registry = item.arch$registryName().toString();
@@ -74,7 +72,7 @@ public class ModConfig extends PartitioningSerializer.GlobalData {
 //                existing.extraEffects.add(effectConfig);
 //            }
 
-            SOLValheim.Config.common.foodConfigs.put(item.arch$registryName(), existing);
+            ExampleMod.Config.common.foodConfigs.put(item.arch$registryName(), existing);
         }
 
         return existing;
@@ -139,7 +137,7 @@ public class ModConfig extends PartitioningSerializer.GlobalData {
             public List<MobEffectConfig> extraEffects = new ArrayList<>();
 
             public int getTime() {
-                var time = (int) (SOLValheim.Config.common.defaultTimer * 20 * saturationModifier * nutrition);
+                var time = (int) (ExampleMod.Config.common.defaultTimer * 20 * saturationModifier * nutrition);
                 return Math.max(time, 6000);
             }
 
@@ -164,7 +162,7 @@ public class ModConfig extends PartitioningSerializer.GlobalData {
             public int amplifier = 1;
 
             public MobEffect getEffect() {
-                return SOLValheim.MOB_EFFECTS.getRegistrar().get(new ResourceLocation(ID));
+                return ExampleMod.MOB_EFFECTS.getRegistrar().get(new ResourceLocation(ID));
             }
         }
 

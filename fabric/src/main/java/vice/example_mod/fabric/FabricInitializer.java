@@ -1,11 +1,11 @@
-package vice.sol_valheim.fabric;
+package vice.example_mod.fabric;
 
-import vice.sol_valheim.SOLValheim;
+import vice.example_mod.ExampleMod;
 import net.fabricmc.api.ModInitializer;
 
 public class FabricInitializer implements ModInitializer {
     @Override
     public void onInitialize() {
-        SOLValheim.init();
+        ExampleMod.init();
     }
 }

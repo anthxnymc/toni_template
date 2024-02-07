@@ -14,15 +14,15 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "vice.sol_valheim.fabric.FabricInitializer"
+      "vice.${id}.fabric.FabricInitializer"
     ],
     "client": [
-      "vice.sol_valheim.fabric.FabricClientInitializer"
+      "vice.${id}.fabric.FabricClientInitializer"
     ]
   },
   "mixins": [
-    "sol_valheim.mixins.json",
-    "sol_valheim-common.mixins.json"
+    "example_mod.mixins.json",
+    "${id}-common.mixins.json"
   ],
   "depends": {
     "minecraft": "${minecraft_version}",
